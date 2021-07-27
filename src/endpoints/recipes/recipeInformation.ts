@@ -1,7 +1,7 @@
 import type { Application } from 'express'
 import { fetchSpoonacular } from '../../spoonacular/fetchSpoonacular'
 
-export const recipeInformation = (app: Application) => {
+export const configureRecipeInformation = (app: Application) => {
     app.get('/recipes/information', async (req, res) => {
         try {
             const results = await fetchSpoonacular(
