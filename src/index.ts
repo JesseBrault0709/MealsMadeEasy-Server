@@ -1,4 +1,4 @@
-import express, { Request } from 'express'
+import express from 'express'
 import dotenv from 'dotenv'
 import { configureComplexSearch } from './endpoints/recipes/complexSearch'
 import { configureRecipeInformation } from './endpoints/recipes/recipeInformation'
