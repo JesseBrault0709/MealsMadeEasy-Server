@@ -1,10 +1,7 @@
 import express, { Request } from 'express'
 import dotenv from 'dotenv'
-import {
-    complexSearchHandler,
-    complexSearchPath
-} from './endpoints/recipes/complexSearch'
-import { recipeInformation } from './endpoints/recipes/recipeInformation'
+import { configureComplexSearch } from './endpoints/recipes/complexSearch'
+import { configureRecipeInformation } from './endpoints/recipes/recipeInformation'
 
 // Load .env variables into process.env
 
@@ -14,9 +11,12 @@ dotenv.config()
 
 const app = express()
 
-app.get(complexSearchPath, complexSearchHandler)
+// Configure endpoints
 
-recipeInformation(app)
+configureComplexSearch(app)
+configureRecipeInformation(app)
+
+// Run the app
 
 const { PORT } = process.env
 
