@@ -1,5 +1,14 @@
 import axios from 'axios'
 
+/**
+ * A function which communicates (via axios) with the Spoonacular api (hosted
+ * at RapidAPI), taking the Spoonacular endpoint and query-string params and
+ * returning the object returned by Spoonacular.
+ *
+ * @param endpoint the Spoonacular endpoint to access, beginning with '/'
+ * @param params an object containing the query-string params to be passed to spoonacular
+ * @returns the object returned by spoonacular
+ */
 export const fetchSpoonacular = async (endpoint: string, params: any) => {
     console.log({
         endpoint,

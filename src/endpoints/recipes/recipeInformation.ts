@@ -1,6 +1,16 @@
 import type { Application } from 'express'
 import { fetchSpoonacular } from '../../spoonacular/fetchSpoonacular'
 
+/**
+ * Configures the given app with a GET endpoint for retrieving
+ * recipe information.
+ *
+ * The recipeId is expected in the requests query-string.
+ *
+ * @see https://spoonacular.com/food-api/docs#Get-Recipe-Information
+ *
+ * @param app The Express app
+ */
 export const configureRecipeInformation = (app: Application) => {
     app.get('/recipes/information', async (req, res) => {
         try {
