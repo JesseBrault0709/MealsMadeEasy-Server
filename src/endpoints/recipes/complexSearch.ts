@@ -1,5 +1,6 @@
 import { Application } from 'express'
 import { fetchSpoonacular } from '../../spoonacular/fetchSpoonacular'
+import { isSpoonacularError } from '../../spoonacular/SpoonacularError'
 
 /**
  * Configures the given app with a GET endpoint for retrieving
@@ -23,6 +24,11 @@ export const configureComplexSearch = (app: Application) => {
             res.send(results)
         } catch (err) {
             console.error(err)
+            if (isSpoonacularError(err)) {
+                res.status(err.status).send(err.data)
+            } else {
+                res.status(500).send()
+            }
         }
     })
 }
